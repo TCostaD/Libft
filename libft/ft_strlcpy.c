@@ -6,13 +6,13 @@
 /*   By: tcosta-d < tcosta-d@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 17:42:00 by tcosta-d          #+#    #+#             */
-/*   Updated: 2023/04/27 11:55:16 by tcosta-d         ###   ########.fr       */
+/*   Updated: 2023/04/28 16:24:14 by tcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t  ft_strlcpy(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 
