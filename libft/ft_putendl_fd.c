@@ -6,8 +6,14 @@
 /*   By: tcosta-d < tcosta-d@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 11:16:35 by tcosta-d          #+#    #+#             */
-/*   Updated: 2023/04/28 16:15:01 by tcosta-d         ###   ########.fr       */
+/*   Updated: 2023/05/02 11:50:40 by tcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void	ft_putendl_fd(char *s, int fd)
+{
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
+}
