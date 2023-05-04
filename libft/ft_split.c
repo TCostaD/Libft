@@ -6,7 +6,7 @@
 /*   By: tcosta-d < tcosta-d@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 16:08:19 by tcosta-d          #+#    #+#             */
-/*   Updated: 2023/05/03 14:48:16 by tcosta-d         ###   ########.fr       */
+/*   Updated: 2023/05/04 16:41:47 by tcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ char	**ft_split(char const *s, char c)
 	char	**str;
 	int		i;
 	int		j;
-	int		k;
 
 	i = 0;
 	j = 0;
@@ -60,16 +59,16 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	while (s[i])
 	{
-		k = 0;
 		while (s[i] == c)
 			i++;
-		str[j] = (char *)malloc(sizeof(char) * (ft_wordlen(&s[i], c) + 1));
-		if (str[j] == NULL)
-			return (NULL);
-		while (s[i] != c && s[i])
-			str[j][k++] = s[i++];
-		str[j][k] = '\0';
-		j++;
+		if (s[i])
+		{
+			str[j] = ft_substr(&s[i], 0, ft_wordlen(&s[i], c));
+			if (str[j] == NULL)
+				return (NULL);
+			i = i + ft_strlen(str[j]);
+			j++;
+		}
 	}
 	str[j] = NULL;
 	return (str);
