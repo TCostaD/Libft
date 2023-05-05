@@ -6,11 +6,12 @@
 /*   By: tcosta-d < tcosta-d@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 18:19:23 by tcosta-d          #+#    #+#             */
-/*   Updated: 2023/04/21 16:50:51 by tcosta-d         ###   ########.fr       */
+/*   Updated: 2023/05/05 17:37:34 by tcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 void	*ft_memset(void *s, int c, size_t n)
 {
@@ -19,8 +20,6 @@ void	*ft_memset(void *s, int c, size_t n)
 
 	i = 0;
 	s_char = (unsigned char *)s;
-	if (s == 0)
-		return (s);
 	while (i < n)
 	{
 		s_char[i] = (unsigned char)c;
