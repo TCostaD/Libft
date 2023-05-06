@@ -6,7 +6,7 @@
 /*   By: tcosta-d < tcosta-d@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 12:08:30 by tcosta-d          #+#    #+#             */
-/*   Updated: 2023/04/22 15:05:44 by tcosta-d         ###   ########.fr       */
+/*   Updated: 2023/05/06 15:33:32 by tcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,11 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	unsigned char	*src_char;
 	size_t			i;
 
-	if (!dest || !src)
+	if (!dest && !src)
 		return (NULL);
-	if (n == 0)
-		return (dest);
 	i = 0;
 	src_char = (unsigned char *)src;
-	dest_char = dest;
+	dest_char = (unsigned char *)dest;
 	while (i < n)
 	{
 		dest_char[i] = src_char[i];

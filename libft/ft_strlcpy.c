@@ -6,7 +6,7 @@
 /*   By: tcosta-d < tcosta-d@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 17:42:00 by tcosta-d          #+#    #+#             */
-/*   Updated: 2023/04/28 16:24:14 by tcosta-d         ###   ########.fr       */
+/*   Updated: 2023/05/06 16:09:47 by tcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t	i;
 
 	i = 0;
-	if (!dst || !src)
-		return (0);
 	if (dstsize > 0)
 	{
 		while (src[i] && i < dstsize - 1)
