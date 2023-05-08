@@ -6,7 +6,7 @@
 /*   By: tcosta-d < tcosta-d@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 11:57:04 by tcosta-d          #+#    #+#             */
-/*   Updated: 2023/04/21 18:24:18 by tcosta-d         ###   ########.fr       */
+/*   Updated: 2023/05/08 20:58:47 by tcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,17 @@ int	ft_atoi(const char *nptr)
 	final_number = 0;
 	while (nptr[i] == ' ' || nptr[i] == '\n' || nptr[i] == '\t'
 		|| nptr[i] == '\v' || nptr[i] == '\f' || nptr[i] == '\r')
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
+		if (nptr[i] == '-')
+			signal = signal * -1;
 		i++;
 	}
-	if (nptr[i] == '-')
-		signal = signal * -1;
-	i++;
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{	
 		final_number = (final_number) * 10 + (nptr[i] - 48);
 		i++;
 	}
-	final_number = final_number * signal;
-	return (final_number);
+	return (final_number * signal);
 }

@@ -6,7 +6,7 @@
 /*   By: tcosta-d < tcosta-d@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:09:17 by tcosta-d          #+#    #+#             */
-/*   Updated: 2023/04/26 13:28:34 by tcosta-d         ###   ########.fr       */
+/*   Updated: 2023/05/08 15:24:21 by tcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t			i;
 	unsigned char	*ptr_s;
+	size_t			i;
 
 	i = 0;
 	ptr_s = (unsigned char *)s;

@@ -6,7 +6,7 @@
 /*   By: tcosta-d < tcosta-d@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:22:37 by tcosta-d          #+#    #+#             */
-/*   Updated: 2023/05/06 22:33:06 by tcosta-d         ###   ########.fr       */
+/*   Updated: 2023/05/08 16:17:34 by tcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strrchr(const char *s, int c)
 	char	*ptr;
 
 	ptr = (char *)s;
-	if (c == '\0')
+	if ((char)c == '\0')
 		return ((char *)&ptr[ft_strlen(ptr)]);
 	i = (size_t)ft_strlen(s);
 	while (i > 0)

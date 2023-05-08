@@ -6,7 +6,7 @@
 /*   By: tcosta-d < tcosta-d@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:09:38 by tcosta-d          #+#    #+#             */
-/*   Updated: 2023/05/06 20:08:40 by tcosta-d         ###   ########.fr       */
+/*   Updated: 2023/05/08 15:20:44 by tcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	{
 		dst[dst_len + i] = src[i];
 		i++;
-		printf("i: %zu\n", i);
 	}
 	dst[dst_len + i] = '\0';
 	return (src_len + dst_len);
