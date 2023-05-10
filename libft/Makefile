@@ -6,7 +6,7 @@
 #    By: tcosta-d < tcosta-d@student.42porto.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/15 13:38:27 by tcosta-d          #+#    #+#              #
-#    Updated: 2023/05/05 15:52:51 by tcosta-d         ###   ########.fr        #
+#    Updated: 2023/05/10 19:32:06 by tcosta-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,12 @@ SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 	ft_putstr_fd.c ft_split.c ft_striteri.c ft_strjoin.c ft_strmapi.c \
 	ft_strtrim.c ft_substr.c \
 
+BONUS_SRC = ft_lstnew_bonuc.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
+			ft_lstlast_bonus.c ft_lstadd_back_bonus.c \
+
 OBJS = ${SRC:.c=.o}
+
+BONUS_OBJS = ${BONUS_SRC:.c=.o}
 
 INCLUDE = -I .
 
@@ -38,8 +43,11 @@ ${NAME}: ${OBJS}
 
 all:	${NAME}
 
+bonus:	${BONUS_OBJS}
+		ar rcs ${NAME} ${BONUS_OBJS}
+
 clean:
-		${RM} ${OBJS}
+		${RM} ${OBJS} ${BONUS_OBJS}
 
 fclean: clean
 		${RM} ${NAME}
