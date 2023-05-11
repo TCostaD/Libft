@@ -6,7 +6,7 @@
 /*   By: tcosta-d < tcosta-d@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:23:23 by tcosta-d          #+#    #+#             */
-/*   Updated: 2023/05/11 19:28:30 by tcosta-d         ###   ########.fr       */
+/*   Updated: 2023/05/11 20:37:32 by tcosta-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *new_lst;
-	t_list *new_node;
+	t_list	*new_lst;
+	t_list	*new_node;
 
 	new_lst = NULL;
 	new_node = NULL;
