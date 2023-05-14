@@ -29,6 +29,11 @@ void	test_iteri(unsigned int i, char *c)
 		*c = *c - 32;
 }
 
+void	del(void *content)
+{
+	free(content);
+}
+
 int	main(void)
 {
 	// Tests header
@@ -386,5 +391,74 @@ int	main(void)
 	printf(YELLOW("################################ ") CYAN("- Bonus Part -") YELLOW(" ################################\n"));
 
 	printf(BLUE("\n* Function in test: ft_lstnew *\n"));
+	char	*test_lstnew = "Hello World!";
+	t_list	*lstnew = ft_lstnew(test_lstnew);
+	printf("ft_lstnew('Hello World!') : ");
+	if (ft_strncmp(lstnew->content, "Hello World!", 12) == 0)
+		printf(GREEN("[OK]"));
+	else
+		printf(RED("[KO]"));
+	printf("\n");
+
+	printf(BLUE("\n* Function in test: ft_lstadd_front *\n"));
+	t_list	*lst1;
+	t_list	*lst2;
+	t_list	*lst3;
+	t_list	*node;
+	int		num1 = 523;
+	int		num2 = 123;
+	int		num3 = 456;
+
+	lst1 = ft_lstnew(&num1);
+	lst2 = ft_lstnew(&num2);
+	lst1->next = lst2;
+	lst3 = ft_lstnew(&num3);
+	ft_lstadd_front(&lst1, lst3);
+	node = lst1;
+	while (node)
+	{
+		printf("%d\n", *(int *)node->content);
+		node = node->next;
+	}
+	printf("\n");
+
+	printf(BLUE("\n* Function in test: ft_lstsize *\n"));
+	printf("ft_lstsize(lst1) : ");
+	if (ft_lstsize(lst1) == 3)
+		printf(GREEN("[OK]"));
+	else
+		printf(RED("[KO]"));
+	printf("\n");
+
+	printf(BLUE("\n* Function in test: ft_lstlast *\n"));
+	printf("ft_lstlast(lst1) : ");
+	if (ft_lstlast(lst1)->content == &num2)
+		printf(GREEN("[OK]"));
+	else
+		printf(RED("[KO]"));
+	printf("\n");
+
+	printf(BLUE("\n* Function in test: ft_lstadd_back *\n"));
+	t_list	*lst4;
+	int		num4 = 789;
+	lst4 = ft_lstnew(&num4);
+	ft_lstadd_back(&lst1, lst4);
+	node = lst1;
+	while (node)
+	{
+		printf("%d\n", *(int *)node->content);
+		node = node->next;
+	}
+	printf("\n");
+
+	printf(BLUE("\n* Function in test: ft_lstdelone *\n"));
+	printf("ft_lstdelone(lst1, del) : ");
+	ft_lstdelone(lst3, del);
+	if (lst3 == NULL)
+		printf(GREEN("[OK]"));
+	else
+		printf(RED("[KO]"));
+	printf("\n");
+
 	return (0);
 }
