@@ -32,6 +32,28 @@ void	test_iteri(unsigned int i, char *c)
 void	del(void *content)
 {
 	free(content);
+	content = NULL;
+}
+
+void	test_lstiter(t_list *lst)
+{
+	while (lst)
+	{
+		printf("%s\n", (char *)lst->content);
+		lst = lst->next;
+	}
+}
+
+void	test_lstmap(t_list *lst)
+{
+	t_list	*new_lst;
+
+	new_lst = ft_lstmap(lst, &test_mapi, &del);
+	while (new_lst)
+	{
+		printf("%s\n", (char *)new_lst->content);
+		new_lst = new_lst->next;
+	}
 }
 
 int	main(void)
@@ -452,12 +474,68 @@ int	main(void)
 	printf("\n");
 
 	printf(BLUE("\n* Function in test: ft_lstdelone *\n"));
-	printf("ft_lstdelone(lst1, del) : ");
-	ft_lstdelone(lst3, del);
-	if (lst3 == NULL)
-		printf(GREEN("[OK]"));
-	else
-		printf(RED("[KO]"));
+	t_list	*lst5;
+	int		num5 = 987;
+	lst5 = ft_lstnew(&num5);
+	printf("lst5->content : %d\n", *(int *)lst5->content);
+	printf("ft_lstdelone(lst5, del) : ");
+	ft_lstdelone(lst5, del);
+	printf("lst5->content : %d\n", *(int *)lst5->content);
+	printf("\n");
+
+	printf(BLUE("\n* Function in test: ft_lstclear *\n"));
+	printf("lst1->content : %d\n", *(int *)lst1->content);
+	printf("lst1->next->content : %d\n", *(int *)lst1->next->content);
+	printf("lst1->next->next->content : %d\n", *(int *)lst1->next->next->content);
+	printf("ft_lstclear(&lst1, del) : ");
+	ft_lstclear(&lst1, del);
+	printf("lst1->content : %d\n", *(int *)lst1->content);
+	printf("lst1->next->content : %d\n", *(int *)lst1->next->content);
+	printf("lst1->next->next->content : %d\n", *(int *)lst1->next->next->content);
+	printf("\n");
+
+	printf(BLUE("\n* Function in test: ft_lstiter *\n"));
+	t_list	*lst6;
+	t_list	*lst7;
+	t_list	*lst8;
+	int		num6 = 111;
+	int		num7 = 222;
+	int		num8 = 333;
+	lst6 = ft_lstnew(&num6);
+	lst7 = ft_lstnew(&num7);
+	lst8 = ft_lstnew(&num8);
+	lst6->next = lst7;
+	lst7->next = lst8;
+	printf("lst6->content : %d\n", *(int *)lst6->content);
+	printf("lst6->next->content : %d\n", *(int *)lst6->next->content);
+	printf("lst6->next->next->content : %d\n", *(int *)lst6->next->next->content);
+	printf("ft_lstiter(lst6, test_lstiter) : ");
+	ft_lstiter(lst6, test_lstiter);
+	printf("lst6->content : %d\n", *(int *)lst6->content);
+	printf("lst6->next->content : %d\n", *(int *)lst6->next->content);
+	printf("lst6->next->next->content : %d\n", *(int *)lst6->next->next->content);
+	printf("\n");
+
+	printf(BLUE("\n* Function in test: ft_lstmap *\n"));
+	t_list	*lst9;
+	t_list	*lst10;
+	t_list	*lst11;
+	int		num9 = 111;
+	int		num10 = 222;
+	int		num11 = 333;
+	lst9 = ft_lstnew(&num9);
+	lst10 = ft_lstnew(&num10);
+	lst11 = ft_lstnew(&num11);
+	lst9->next = lst10;
+	lst10->next = lst11;
+	printf("lst9->content : %d\n", *(int *)lst9->content);
+	printf("lst9->next->content : %d\n", *(int *)lst9->next->content);
+	printf("lst9->next->next->content : %d\n", *(int *)lst9->next->next->content);
+	printf("ft_lstmap(lst9, test_lstmap, del) : ");
+	t_list	*lst12 = ft_lstmap(lst9, test_lstmap, del);
+	printf("lst12->content : %d\n", *(int *)lst12->content);
+	printf("lst12->next->content : %d\n", *(int *)lst12->next->content);
+	printf("lst12->next->next->content : %d\n", *(int *)lst12->next->next->content);
 	printf("\n");
 
 	return (0);
